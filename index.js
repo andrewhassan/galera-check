@@ -2,11 +2,17 @@ var config = require('./config.json');
 var mysql = require('mysql');
 var http = require('http');
 
-var connection = mysql.createConnection({
+var connectionConfig = {
   host: config.host,
   user: config.user,
   password: config.password
-});
+};
+
+if (config.socketPath) {
+  connectionConfig.socketPath = config.socketPath;
+}
+
+var connection = mysql.createConnection(connectionConfig);
 
 connection.connect();
 

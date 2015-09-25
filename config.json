@@ -1,5 +1,6 @@
 {
   "host": "localhost",
   "password": "password",
-  "user": "root"
+  "user": "root",
+  "socketPath": "/var/run/mysqld/mysqld.sock"
 }
