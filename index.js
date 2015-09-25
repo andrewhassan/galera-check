@@ -26,8 +26,15 @@ var server = http.createServer(function (request, response) {
 
     var row = rows[0];
 
-    response.writeHead(200, {"Content-Type": "text/plain"});
-    response.end(row);
+    // if value column == 4, then we're good
+    if (row.Value == 4) {
+      response.writeHead(200, {"Content-Type": "text/plain"});
+      response.end('Galera Node is Up!');
+      return;
+    }
+
+    response.writeHead(503, {"Content-Type": "text/plain"});
+    response.end('Galera Node is Down!');
   });
 });
 
