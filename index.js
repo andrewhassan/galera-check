@@ -5,8 +5,7 @@ var http = require('http');
 var connection = mysql.createConnection({
   host: config.host,
   user: config.user,
-  password: config.password,
-  database: config.database
+  password: config.password
 });
 
 connection.connect();
